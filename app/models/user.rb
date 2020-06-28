@@ -3,4 +3,4 @@ class User < ActiveRecord::Base
     has_secure_password   #login/logout/README
 
 
-end
+end 
