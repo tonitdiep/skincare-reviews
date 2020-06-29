@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
     post '/users/login' do 
         @user = User.create(username: params[:username], password: params[:password])
-        redirect '/objects'
+        redirect '/products'
     end
 
 end
