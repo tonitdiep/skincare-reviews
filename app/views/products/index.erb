@@ -1,7 +1,8 @@
-<%= product.description %>
-<% @products.each do |products| %>
-
-<% end %>
-
-
+<% @products.each do |product| %>
+    <%= product.description %>
+    <%= product.rating %>
+    <%= product.price %>
+    <%= product.reorder %>
+    <%= product.user_id %> 
+    <% end %>
 

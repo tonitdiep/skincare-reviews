@@ -2,9 +2,11 @@
 
 <form action="/products/<%= @product.id %>" method="post">
 <input id="hidden" type="hidden" name="_method" value="PATCH">
-<input id="title" type="text" name="title" value="<%= @product.title %>">
-<input id="content" type="text" name="content" value="<%= @product.content %>">
-<input id="content" type="text" name="content" value="<%= @product.content %>">
-<input id="content" type="text" name="content" value="<%= @product.content %>">
+<input id="description" type="text" name="description" value="<%= @product.description %>">
+<input id="rating" type="text" name="rating" value="<%= @product.rating %>">
+<input id="price" type="text" name="price" value="<%= @product.price %>">
+<input id="reorder" type="text" name="reorder" value="<%= @product.reorder %>">
+<input id="user_id" type="text" name="user_id" value="<%= @product.user_id %>">
 <input id="submit" type="submit" value="submit">
 </form>
+
