@@ -8,7 +8,7 @@ class UsersController < ApplicationController
         #process and create new object
         @user = User.create(username: params[:username], password: params[:password])
         # params.inspect
-        redirect '/products'
+        redirect to '/products'
     end
 
     get '/products' do
@@ -23,9 +23,29 @@ class UsersController < ApplicationController
 
     post '/users/login' do 
         @user = User.create(username: params[:username], password: params[:password])
-        redirect '/products'
+        redirect to '/products'
     end
 
+    # get "/success" do
+	# 	if logged_in?
+	# 		erb :success
+	# 	else
+	# 		redirect "/login"
+	# 	end
+	# end
+	# get "/failure" do
+	# 	erb :failure
+	# end
+    get '/users/logout' do 
+        erb :'/users/logout'
+    end
+
+    post '/users/logout' do
+        session.clear
+    redirect to '/users/login'
+    end
+
+  
 end
 
 #remember for usage in the contorller

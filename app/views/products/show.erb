@@ -5,5 +5,20 @@
 # <p><%= @product.user_id %></p>
 <form method="post" action="/products/<%= @product.id %>/">
   <input id="hidden" type="hidden" value="delete" name="_method">
-  <input type="submit" value="delete">
+  <input type="submit" value="Delete">
+  
+  <input id="hidden" type="hidden" value="edit" name="_method">
+  <input type="submit" value="Edit">
+  <input id="hidden" type="hidden" value="save" name="_method">
+  <input type="submit" value="Save">
+</form>
+
+<form method="post" action="/products/<%= @product.id %>/">
+  <input id="hidden" type="hidden" value="edit" name="_method">
+  <input type="submit" value="Edit">
+</form>
+
+<form method="post" action="/products/<%= @product.id %>/">
+  <input id="hidden" type="hidden" value="save" name="_method">
+  <input type="submit" value="Save">
 </form>
