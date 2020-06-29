@@ -6,8 +6,8 @@ class ProductsController < ApplicationController
         erb :new
     end
     post '/products' do 
-        instance = Product.create(params)
-        redirect "/products/#{instance.id}"
+        @product = Product.create(params)
+        redirect "/products/@product.id"
     end
 
     get '/products' do 
