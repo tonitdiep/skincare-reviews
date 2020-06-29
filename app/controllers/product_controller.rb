@@ -3,25 +3,26 @@ class ProductsController < ApplicationController
     get '/' do 
     end
     get '/products/new' do
-        erb :new
+        erb :'/products/new'
     end
     post '/products' do 
         @product = Product.create(params)
-        redirect "/products/@product.id"
+        redirect "/products/#{@product.id}"
     end
 
     get '/products' do 
         @products = Products.all
-        erb :index 
+        erb :'/products/index' 
     end
 
     get '/products/:id' do
+        # binding.pry
         @product = Product.find(params[:id])
-        erb :show
+        erb :'/products/show'
     end  
     get '/products/:id/edit' do
         @product = Product.find(params[:id])
-        erb :edit
+        erb :'/products/edit'
     end   
     patch '/products/:id' do
         product = Product.find_by(id: params[:id])

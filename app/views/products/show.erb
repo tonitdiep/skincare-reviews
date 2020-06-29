@@ -2,7 +2,7 @@
 <p><%= @product.rating %></p>
 <p><%= @product.price %></p>
 <p><%= @product.reorder %></p>
-<p><%= @product.user_id %></p>
+# <p><%= @product.user_id %></p>
 <form method="post" action="/products/<%= @product.id %>/">
   <input id="hidden" type="hidden" value="delete" name="_method">
   <input type="submit" value="delete">

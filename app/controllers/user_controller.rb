@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     get '/products' do
         @products = Product.all
-        erb :index
+        erb :'/products/index'
     end
 
     get '/users/login' do 
