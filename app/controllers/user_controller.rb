@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         redirect '/products'
     end
 
-    get '/products'
+    get '/products' do
         @products = Product.all
         erb :index
     end
