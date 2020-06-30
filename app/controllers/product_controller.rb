@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
     #create 1 product
     post '/products' do 
         @product = Product.create(params)
+        @product[:reorder] = true if params[:reorder] == "yes"
         redirect "/products/#{@product.id}"
     end
     # show 1 product
@@ -37,4 +38,7 @@ class ProductsController < ApplicationController
         @product = Product.find(params[:id])
         @product.destroy
     end
+
+
+    
 end

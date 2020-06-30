@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     end
 
     post '/users/login' do 
-        @user = User.create(username: params[:username], password: params[:password])
+        @user = User.find(username: params[:username], password: params[:password])
         redirect to '/products'
     end
 
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
     post '/users/logout' do
         session.clear
-    redirect to '/users/login'
+        redirect to '/users/login'
     end
 
   

@@ -1,7 +1,9 @@
 <form action="/products" method="post">
   Description: <input id="description" placeholder="product's name and benefits" type="text" name="description"><br>
-  Rating: <input id="rating" placeholder="1-5" type="textarea" name="rating"><br>
-  Price: <input id="price" placeholder="$" type="textarea" step="any" name="price"><br>
-  Reorder: <input id="reorder" placeholder="Yes/No" type="textarea" name="reorder"><br>
+  Rating: <input id="rating" placeholder="1-5 stars" type="textarea" step="0.01" min="0" max="5" name="rating"><br>
+  Price: <input id="price" placeholder="1.0" type="number" step="0.01" min="0" max="100" value="decimals" name="price"><br>
+  Reorder: <select id="reorder" type="textarea" name="reorder"><br>
+    <option value="yes">yes</option>
+    <option value="no">no</option></select>
   <input type="submit"><br> 
 </form>

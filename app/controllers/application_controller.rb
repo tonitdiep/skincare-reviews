@@ -12,12 +12,13 @@ class ApplicationController < Sinatra::Base
   get "/" do
     "Welcome!"
     #main/home page
-    erb :'/views/application/welcome'
+    erb :'/application/welcome'
   end
 
   helpers do
 		def logged_in?
-			!!session[:user_id]
+      !!session[:user_id]
+      
 		end
 
 		def current_user

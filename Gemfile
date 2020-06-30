@@ -11,7 +11,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
-
+# gem 'dotemv' #salt your password
 group :test do
   gem 'rspec'
   gem 'capybara'

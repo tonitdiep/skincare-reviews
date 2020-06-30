@@ -1,8 +1,9 @@
+<div class="container">
 <% @products.each do |product| %>
-    <%= product.description %>
+    <p class="><%= product.description %></p>
     <%= product.rating %>
     <%= product.price %>
     <%= product.reorder %>
     <%= product.user_id %> 
     <% end %>
-
+</div>
