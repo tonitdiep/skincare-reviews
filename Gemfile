@@ -12,6 +12,7 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'dotenv' #salt your password
+gem 'sinatra-flash' #flash[:messages] = "messages"
 group :test do
   gem 'rspec'
   gem 'capybara'

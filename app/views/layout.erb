@@ -19,17 +19,17 @@
   <body>
   <div class="wrapper">
     
-      <% if logged_in?%>
-      <form action="/users/logout" method="post">
-        <input type="submit" value="Logout">
-      </form>
+      <% if logged_in? %>
+        <form action="/users/logout" method="post">
+          <input type="submit" value="Logout">
+        </form>
       <%else%>
-      <form action="/users/signup" method="get">
-        <input type="submit" value="User Signup">
-      </form>
+        <form action="/users/signup" method="get">
+          <input type="submit" value="User Signup">
+        </form>
       <% end %>
 
-      
+
 
    
         <%= yield %>

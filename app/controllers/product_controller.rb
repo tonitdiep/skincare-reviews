@@ -12,9 +12,9 @@ class ProductsController < ApplicationController
     #create 1 product
     post '/products' do 
         @product = Product.create(params)
-        @product[:reorder] = params[:reorder] 
-        # @product.reorder = true if params[:reorder] == "yes"
-        # @product.reorder = false if params[:reorder] == "no"
+        # @product[:reorder] = params[:reorder] 
+        @product.reorder = true if params[:reorder] == "yes"
+        @product.reorder = false if params[:reorder] == "no"
         redirect "/products/#{@product.id}"
     end
     # show 1 product
@@ -23,10 +23,15 @@ class ProductsController < ApplicationController
         erb :'/products/show'
     end  
     #edit 1 product
-    get '/products/:id/edit' do
+    get '/products/:id/edit' do  
         @product = Product.find(params[:id])
-        erb :'/products/edit'
-      
+        if logged_in? && current_user_id == @product.user_id  #setting up protection
+            erb :'/products/edit'
+        else
+            # flash[:message] = "You're logged in and can go ahead to edit your product information."
+            redirect '/products'
+            erb :'/products/edit'
+        end
     end   
     #update 1 product
     patch '/products/:id' do

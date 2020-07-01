@@ -7,6 +7,7 @@ class UsersController < ApplicationController
         #first route to render my signup form, not processing anything or receiving params from any form
         #process and create new object
         @user = User.create(username: params[:username], password: params[:password])
+        #if statement
         # params.inspect
         session[:user_id] = @user[:id]
         redirect '/products'
@@ -24,11 +25,17 @@ class UsersController < ApplicationController
 
     post '/users/login' do 
         @user = User.find_by_username(params[:username])
-        if @user.authenticate(params[:password])
+        if @user && @user.authenticate(params[:password])
             session[:user_id] = @user[:id]
             redirect '/products'
         else
-            redirect '/users/signup'
+            # binding.pry
+            # flash[:message] = "Invalid Username or Password?"
+            # redirect '/users/login'
+        #    @error = "Invalid Username or Password"
+        #    erb :'/users/login'
+            flash[:message] = "Try Again. Invalid Username or Password."
+            redirect '/users/login'
         end
     end
 
