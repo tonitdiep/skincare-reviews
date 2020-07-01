@@ -1,6 +1,6 @@
 <div class="container">
 <% @products.each do |product| %>
-    <p class="><%= product.description %></p>
+    <p><a href="/products/<%=product.id%>"><%= product.description %></a></p>
     <%= product.rating %>
     <%= product.price %>
     <%= product.reorder %>

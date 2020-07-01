@@ -8,7 +8,8 @@ class UsersController < ApplicationController
         #process and create new object
         @user = User.create(username: params[:username], password: params[:password])
         # params.inspect
-        redirect to '/products'
+        session[:user_id] = @user[:id]
+        redirect '/products'
     end
 
     get '/products' do
@@ -22,8 +23,13 @@ class UsersController < ApplicationController
     end
 
     post '/users/login' do 
-        @user = User.find(username: params[:username], password: params[:password])
-        redirect to '/products'
+        @user = User.find_by_username(params[:username])
+        if @user.authenticate(params[:password])
+            session[:user_id] = @user[:id]
+            redirect '/products'
+        else
+            redirect '/users/signup'
+        end
     end
 
     # get "/success" do
@@ -45,7 +51,6 @@ class UsersController < ApplicationController
         redirect to '/users/login'
     end
 
-  
 end
 
 #remember for usage in the contorller

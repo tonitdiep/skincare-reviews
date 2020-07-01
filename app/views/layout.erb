@@ -17,8 +17,21 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="wrapper">
+  <div class="wrapper">
+    
+      <% if logged_in?%>
+      <form action="/users/logout" method="post">
+        <input type="submit" value="Logout">
+      </form>
+      <%else%>
+      <form action="/users/signup" method="get">
+        <input type="submit" value="User Signup">
+      </form>
+      <% end %>
 
+      
+
+   
         <%= yield %>
 
       <footer class="branding">
@@ -41,3 +54,7 @@
 </html>
 
 
+
+ 
+
+    

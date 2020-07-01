@@ -1,14 +1,22 @@
 <h1><%= @product.description %></h1>
-<p>Rating(1-5 stars) <%= @product.rating %></p>
-<p>$ <%= @product.price %></p>
-<p><%= @product.reorder %></p>
+<p>Rating: (0-5 stars) <%= @product.rating %></p>
+<p>Price $<%= @product.price %></p>
+<p>Reorder (true(yes) OR false(no)): <%= @product.reorder %></p>
 <!--<p><%= @product.user_id %></p>--> 
-<form method="post" action="/products/<%= @product.id %>/">
+
+<form method="post" action="/products/<%= @product.id %>/delete">
   <input id="hidden" type="hidden" value="delete" name="_method">
-  <input id="hidden" type="hidden" value="edit" name="_method">
-  <input id="hidden" type="hidden" value="save" name="_method">
-  <input type="submit" class="border border-warning" value="Delete">
-  <input type="submit" value="Edit">
-  <input type="submit" value="Save">
+  <input type="submit" value="Delete">
 </form>
 
+<form method="get" action="/products/<%= @product.id %>/edit">
+  <input type="submit" value="Edit">
+</form>
+
+<form method="get" action="/products">
+  <input type="submit" value="Go Back">
+</form>
+
+
+<!--if statement product user.id = session[:user_id] then user can edit else etc-->
+<%  
