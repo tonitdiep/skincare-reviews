@@ -10,6 +10,10 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
   end
 
+    # not_found do 
+    #   status 404
+    #   erb :error
+    # end
   # add_flash_types :danger, :info, :warning, :success
 
   get "/" do
@@ -25,7 +29,7 @@ class ApplicationController < Sinatra::Base
 		end
 
 		def current_user_id
-			User.find(session[:user_id])
+			@current_user ||= User.find_by_id(session[:user_id])
 		end
 	end
 
