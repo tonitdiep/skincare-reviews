@@ -7,8 +7,13 @@ class UsersController < ApplicationController
         #first route to render my signup form, not processing anything or receiving params from any form
         #process and create new object
         @user = User.create(username: params[:username], password: params[:password], email: params[:email])
-                session[:user_id] = @user.id
-                redirect '/products'
+        if @user.valid?    
+            session[:user_id] = @user.id
+            redirect '/products'
+        else
+            flash[:message] = "Invalid SignUp. Try again."
+            redirect '/users/signup'
+        end
         # params.inspect
     end
 
