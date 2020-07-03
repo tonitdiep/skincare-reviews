@@ -10,26 +10,19 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
   end
 
-    # not_found do 
-    #   status 404
-    #   erb :error
-    # end
-  # add_flash_types :danger, :info, :warning, :success
 
   get "/" do
-    "Welcome!"
     #main/home page
     erb :'/welcome'
   end
 
   helpers do
 		def logged_in?
-      !!session[:user_id]
-      
+      !!current_user
 		end
 
-		def current_user_id
-			@current_user ||= User.find_by_id(session[:user_id])
+		def current_user
+			@current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
 		end
 	end
 

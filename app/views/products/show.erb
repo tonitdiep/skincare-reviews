@@ -4,19 +4,16 @@
 <p>Reorder (true(yes) OR false(no)): <%= @product.reorder %></p>
 <!--<p><%= @product.user_id %></p>--> 
 
-<form method="post" action="/products/<%= @product.id %>/delete">
+<form method="post" action="/products/<%= @product.id %>">
   <input id="hidden" type="hidden" value="delete" name="_method">
   <input type="submit" value="Delete">
 </form>
 
 <form method="get" action="/products/<%= @product.id %>/edit">
   <input type="submit" value="Edit">
-</form>
+</form> 
 
 <form method="get" action="/products">
   <input type="submit" value="Go Back">
 </form>
-
-
-<!--if statement product user.id = session[:user_id] then user can edit else etc-->
 

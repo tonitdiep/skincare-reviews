@@ -11,15 +11,9 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect '/products'
         else
-            flash[:message] = "Invalid SignUp. Try again."
             redirect '/users/signup'
         end
         # params.inspect
-    end
-
-    get '/products' do
-        @products = Product.all
-        erb :'/products/index'
     end
 
     get '/users/login' do 
@@ -33,9 +27,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect '/products'
         else
-        #    @error = "Invalid Username or Password"
-        #    erb :'/users/login'
-            flash[:message] = "Try Again. Invalid Username or Password."
+           flash[:message] = "Invalid Username or Password"
             redirect '/users/login'
         end
     end
@@ -46,7 +38,7 @@ class UsersController < ApplicationController
 
     post '/users/logout' do
         session.clear
-        redirect to '/users/login'
+        redirect to '/'
     end
 
 end
