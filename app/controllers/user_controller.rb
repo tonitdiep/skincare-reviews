@@ -42,7 +42,3 @@ class UsersController < ApplicationController
     end
 
 end
-
-#remember for usage in the contorller
-#params[:username]
-#params[:password]

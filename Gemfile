@@ -9,9 +9,9 @@ gem 'sqlite3', '~> 1.3.6'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
-gem 'bcrypt'
+gem 'bcrypt' #salt password
 gem 'tux'
-gem 'dotenv' #salt your password
+gem 'dotenv'
 gem 'sinatra-flash' #flash[:messages] = "messages"
 group :test do
   gem 'rspec'

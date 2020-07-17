@@ -1,10 +1,11 @@
 <div class="container">
 <br><p>Click Products Below To Learn More or <a href="/products/new">Share Your Product Review</a></p>
 <% @products.each do |product| %>
-    <p><a href="/products/<%=product.id%>"><%= product.description %></a></p>
-    Rating: <%= product.rating %>
-    Price: <%= product.price %>
-    Reorder("true" is yes, "false" is no): <%= product.reorder%>
-    <%= product.user_id %> 
+    <br><a href="/products/<%=product.id%>"><strong><%= product.description %></strong></a><br>
+    <strong>Rating:</strong> <%= product.rating %>
+    <strong>Price: $</strong> <%= product.price %>
+    <strong>Reorder:</strong> <%= product.display_reorder%>
+    <br><small>Add by:
+    <%= product.user.username %> </small><br><br>
     <% end %>
 </div>

@@ -10,7 +10,6 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
   end
 
-
   get "/" do
     #main/home page
     erb :'/welcome'
@@ -23,8 +22,8 @@ class ApplicationController < Sinatra::Base
 
 		def current_user
 			@current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
-		end
+    end
+    
 	end
-
 
 end

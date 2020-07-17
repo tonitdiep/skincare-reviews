@@ -1,7 +1,7 @@
 <h1><%= @product.description %></h1>
 <p>Rating: (0-5) <%= @product.rating %></p>
 <p>Price $<%= @product.price %></p>
-<p>Reorder (true(yes) OR false(no)): <%= @product.reorder %></p>
+<p>Reorder: <%= @product.display_reorder %></p>
 <!--<p><%= @product.user_id %></p>--> 
 
 <form method="post" action="/products/<%= @product.id %>">
