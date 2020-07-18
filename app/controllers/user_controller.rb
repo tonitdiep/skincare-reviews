@@ -31,7 +31,10 @@ class UsersController < ApplicationController
             redirect '/users/login'
         end
     end
-
+    get '/users/show' do
+        @products = current_user.products
+        erb :'/products/index'
+    end
     get '/users/logout' do 
         erb :'/users/logout'
     end

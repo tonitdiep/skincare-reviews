@@ -38,9 +38,9 @@ class ProductsController < ApplicationController
     end   
    
     patch '/products/:id' do
-        @product = Product.find_by(id: params[:id])
-        if logged_in? && current_user.id == @product.user_id
-            @product.update(description: params[:description], rating: params[:rating], price: params[:price], reorder: params[:reorder]) 
+        product_finds
+        if logged_in? && current_user.id == @product_finds.user_id
+            @product_finds.update(description: params[:description], rating: params[:rating], price: params[:price], reorder: params[:reorder]) 
             erb :'/products/show'
         else
             redirect "/products/#{product.id}"
@@ -48,10 +48,13 @@ class ProductsController < ApplicationController
     end
     
     delete '/products/:id' do
-        @product = Product.find(params[:id])
-        if logged_in? && current_user.id == @product.user_id
-            @product.destroy
+        product_finds
+        # @product = Product.find(params[:id])
+        # if !!product_user_checks
+        if logged_in? && current_user.id == @product_finds.user_id
+            @product_finds.destroy
         end
         redirect '/products'  
+    
     end
 end

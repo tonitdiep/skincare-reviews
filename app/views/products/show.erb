@@ -1,15 +1,15 @@
-<h1><%= @product.description %></h1>
-<p>Rating: (0-5) <%= @product.rating %></p>
-<p>Price $<%= @product.price %></p>
-<p>Reorder: <%= @product.display_reorder %></p>
-<!--<p><%= @product.user_id %></p>--> 
+<h1><%= product_finds.description %></h1>
+<p>Rating: (0-5) <%= product_finds.rating %></p>
+<p>Price $<%= product_finds.price %></p>
+<p>Reorder: <%= product_finds.display_reorder %></p>
+<!--<p><%= @product_finds.user_id %></p>--> 
 
-<form method="post" action="/products/<%= @product.id %>">
+<form method="post" action="/products/<%= @product_finds.id %>">
   <input id="hidden" type="hidden" value="delete" name="_method">
   <input type="submit" value="Delete">
 </form>
 
-<form method="get" action="/products/<%= @product.id %>/edit">
+<form method="get" action="/products/<%= @product_finds.id %>/edit">
   <input type="submit" value="Edit">
 </form> 
 
