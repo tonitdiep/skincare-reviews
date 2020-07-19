@@ -39,7 +39,8 @@ class ProductsController < ApplicationController
    
     patch '/products/:id' do
         product_finds
-        if logged_in? && current_user.id == @product_finds.user_id
+        if is_authorized?
+        # if logged_in? && current_user.id == @product_finds.user_id
             @product_finds.update(description: params[:description], rating: params[:rating], price: params[:price], reorder: params[:reorder]) 
             erb :'/products/show'
         else
@@ -49,12 +50,15 @@ class ProductsController < ApplicationController
     
     delete '/products/:id' do
         product_finds
+        complete_delete
         # @product = Product.find(params[:id])
         # if !!product_user_checks
-        if logged_in? && current_user.id == @product_finds.user_id
-            @product_finds.destroy
-        end
-        redirect '/products'  
+        # if logged_in? && current_user.id == @product_finds.user_id
+       
+        # if is_authorized?
+        #     @product_finds.destroy
+        # end
+        # redirect '/products'  
     
     end
 end
